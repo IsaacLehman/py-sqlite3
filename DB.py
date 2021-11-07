@@ -1,5 +1,5 @@
 """
-A clean class to work with SQLITE3 Databases
+A clean class to work with SQLITE3 Databases in Python
 
 Note: iud = insert, update, and delete
 
@@ -58,6 +58,13 @@ class DB:
 
         # Connect to the database
         self.db_connect()
+
+    def __del__(self):
+        """
+        Close the connection on destruction
+        """
+        if self.con:
+            self.db_close()
         
 
     def db_connect(self):
@@ -77,7 +84,8 @@ class DB:
         """ 
         Close the DB connection
         """
-        self.con.close()
+        if self.con:
+            self.con.close()
 
 
     def create_table(self, table_name, table_cols):
