@@ -21,9 +21,6 @@ Examle usage (run.py file):
     for row in myDB.select("SELECT * FROM Users"):
         print(row)
 
-    # Close connection
-    myDB.db_close()
-
     ---
     Console:
     IN:  $> python run.py
